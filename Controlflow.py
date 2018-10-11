@@ -32,6 +32,12 @@ while a < 10:
         a += 1
 
 students = ['Prasad', 'Akash', 'Chetan', 'Amar', 'Samant', 'Shweta']
+
+'''
+for item in list:
+        item
+'''
+
 # for stu in students:
 #         for ch in stu:
 #                 print(ch)
