@@ -1,3 +1,4 @@
+'''
 def functionName():
     print("functionName")
 
@@ -53,12 +54,71 @@ print("After: {}".format(myList))
 print("After id: ",id(myList))
 
 
-def removeEverythingExceptString(strings):
-    for s in strings:
+def removeEverythingExceptString1(strings):
+    count = 0
+    for (i, s) in enumerate(strings):
         if not isinstance(s,str):
-            strings.remove(s)
+           strings[i] = 0
+           count += 1
+    while count > 0:
+        strings.remove(0)
+        count -= 1
 
+def removeEverythingExceptString2(strings):
+    count = len(strings) - 1
+    while count >  0:
+        if not isinstance(strings[count],str):
+            strings.remove(strings[count])
+        count -= 1
 
-strings = ['One', 'Two', 3, 4, 'Red', 'Green', 'Blue', 23.60]
-removeEverythingExceptString(strings)
+strings = ['One', 'Two', 3, 4, 'Red', 'Green', 'Blue', 23.60, 56, 36.98]
+removeEverythingExceptString2(strings)
 print(strings)
+
+'''
+
+
+def calcSeries(list):
+        degree = 1
+        sum = 0
+        for num in list:
+               sum += (num**degree)
+               degree += 1
+        return sum
+
+def inputList(list):
+        while True:
+                num = int(input('Enter number: '))
+                if num == 0:
+                    break
+                else:
+                        list.append(num)
+
+
+list = []
+inputList(list)
+print(list)
+print(calcSeries(list))
+
+def sumOfList(list):
+        sum = 0
+        for num in list:
+                sum += num
+        return sum
+
+print(sumOfList(list))
+
+def splitTheList(list):
+        length = len(list)
+        mid = int(length/2.0)
+        print(type(mid))
+        list1 = []
+        list2 = []
+        for i,num in enumerate(list):
+                if i < mid:
+                        list1.append(num)
+                else:
+                        list2.append(num)
+        return list1, list2
+
+print(splitTheList(list))
