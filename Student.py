@@ -58,6 +58,23 @@ class School:
             sum += stu.marklist.percentageMarks()
         return sum/self.numberOfStudents()
 
+    def getIntelligentStudent(self):
+        maxMarks = max(stu.marklist.percentageMarks() for stu in self.students)
+        for stu in self.students:
+            if stu.marklist.percentageMarks() == maxMarks:
+                return stu
+        return None
+
+    def getDullStudent(self):
+        minMarks = min(stu.marklist.percentageMarks() for stu in self.students)
+        for stu in self.students:
+            if stu.marklist.percentageMarks() == minMarks:
+                return stu
+        return None
+
+    
+    
+    
 marklist1 = MarkList(90,93,89,85,75)
 stu1 = Student(1, 'Chetan', marklist1)
 
@@ -81,3 +98,8 @@ school.display()
 
 print('Average marks: {}'.format(school.averageMarksOfStudents()))
 
+iStu = school.getIntelligentStudent()
+print("Topper: {}".format(iStu.marklist.percentageMarks()))
+
+iStu = school.getDullStudent()
+print("Non Topper: {}".format(iStu.marklist.percentageMarks()))
